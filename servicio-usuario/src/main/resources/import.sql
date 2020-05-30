@@ -1,0 +1,1 @@
+INSERT INTO usuarios(numerodocumento,tipodocumento, nombre,apellido,tiposangre,factorsangre,fechanacimiento,direccionresidencia, edad, telefono, municipio,email,estatura) VALUES (103,'cedula', 'Sebastian', 'Martinez', 'o','+',NOW(),'calle 1', 20,3142,'bogota', 'email@email.com', 1.70);
