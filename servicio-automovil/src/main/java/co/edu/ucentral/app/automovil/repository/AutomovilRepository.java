@@ -12,7 +12,7 @@ import co.edu.ucentral.app.automovil.model.Automovil;
 @Repository
 public interface AutomovilRepository extends CrudRepository<Automovil, String> {
 
-	@Query ("SELECT v FROM Automovil v WHERE v.placa=?1")
+	//@Query ("SELECT v FROM Automovil v WHERE v.placa=?1")
 	public Optional<Automovil> findbyPlaca(String placa); 
 	
 }

@@ -16,85 +16,73 @@ import javax.persistence.Transient;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
-@Table (name="usuarios")
-public class Usuario implements Serializable{
+@Table (name="ciudadanos")
+public class Ciudadano implements Serializable{
 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
-
-	
+	private static final long serialVersionUID = 8108626855795525565L;
 	
 	//@GeneratedValue(strategy=GenerationType.AUTO, generator="native")
 	//@GenericGenerator(name="native",strategy="native")
 	@Id
 	@GeneratedValue
-	private Integer numerodocumento;
-	//@Column
-	private String tipodocumento;
-	//@Column
+	private Integer idCiudadano;
+	private String tipoDocumento;
+	private Integer numeroDocumento;
 	private String nombre;
-	//@Column
 	private String apellido;
-	//@Column
-	private char tiposangre;
-	//@Column
-	private String factorsangre;
-	//@Column
+	private char tipoSangre;
+	private String factorSangre;
 	@Temporal (TemporalType.DATE)
-	private Date fechanacimiento;
-	//@Column
-	private String direccionresidencia;
-	//@Column
+	private Date fechaNacimiento;
+	private String direccionResidencia;
 	private Integer edad;
-	//@Column
-	private Integer telefono;
-	//@Column
+	private String telefono;
 	private String municipio;
-	//@Column
 	private String email;
-	//@Column
 	private double estatura;
 	//@Transient
 	private Integer Port;
 	
 	
-	
-	
-	
-	
-	
-	public Usuario() {
+	public Ciudadano() {
 	}
-	public Usuario(String tipoDocumento, Integer numeroDocumento, String nombre, String apellido, char tipoSangre,
-			String factorSangre, Date fechaNacimiento, String direccionResidencia, Integer edad, Integer telefono,
+	public Ciudadano(String tipoDocumento, Integer numeroDocumento, String nombre, String apellido, char tipoSangre,
+			String factorSangre, Date fechaNacimiento, String direccionResidencia, Integer edad, String telefono,
 			String municipio, String email, double estatura) {
-		this.tipodocumento = tipoDocumento;
-		this.numerodocumento = numeroDocumento;
+		this.tipoDocumento = tipoDocumento;
+		this.numeroDocumento = numeroDocumento;
 		this.nombre = nombre;
 		this.apellido = apellido;
-		this.tiposangre = tipoSangre;
-		this.factorsangre = factorSangre;
-		this.fechanacimiento = fechaNacimiento;
-		this.direccionresidencia = direccionResidencia;
+		this.tipoSangre = tipoSangre;
+		this.factorSangre = factorSangre;
+		this.fechaNacimiento = fechaNacimiento;
+		this.direccionResidencia = direccionResidencia;
 		this.edad = edad;
 		this.telefono = telefono;
 		this.municipio = municipio;
 		this.email = email;
 		this.estatura = estatura;
 	}
+	public Integer getIdCiudadano() {
+		return idCiudadano;
+	}
+	public void setIdCiudadano(Integer idCiudadano) {
+		this.idCiudadano = idCiudadano;
+	}
 	public String getTipoDocumento() {
-		return tipodocumento;
+		return tipoDocumento;
 	}
 	public void setTipoDocumento(String tipoDocumento) {
-		this.tipodocumento = tipoDocumento;
+		this.tipoDocumento = tipoDocumento;
 	}
 	public Integer getNumeroDocumento() {
-		return numerodocumento;
+		return numeroDocumento;
 	}
 	public void setNumeroDocumento(Integer numeroDocumento) {
-		this.numerodocumento = numeroDocumento;
+		this.numeroDocumento = numeroDocumento;
 	}
 	public String getNombre() {
 		return nombre;
@@ -109,28 +97,28 @@ public class Usuario implements Serializable{
 		this.apellido = apellido;
 	}
 	public char getTipoSangre() {
-		return tiposangre;
+		return tipoSangre;
 	}
 	public void setTipoSangre(char tipoSangre) {
-		this.tiposangre = tipoSangre;
+		this.tipoSangre = tipoSangre;
 	}
 	public String getFactorSangre() {
-		return factorsangre;
+		return factorSangre;
 	}
 	public void setFactorSangre(String factorSangre) {
-		this.factorsangre = factorSangre;
+		this.factorSangre = factorSangre;
 	}
 	public Date getFechaNacimiento() {
-		return fechanacimiento;
+		return fechaNacimiento;
 	}
 	public void setFechaNacimiento(Date fechaNacimiento) {
-		this.fechanacimiento = fechaNacimiento;
+		this.fechaNacimiento = fechaNacimiento;
 	}
 	public String getDireccionResidencia() {
-		return direccionresidencia;
+		return direccionResidencia;
 	}
 	public void setDireccionResidencia(String direccionResidencia) {
-		this.direccionresidencia = direccionResidencia;
+		this.direccionResidencia = direccionResidencia;
 	}
 	public Integer getEdad() {
 		return edad;
@@ -138,10 +126,10 @@ public class Usuario implements Serializable{
 	public void setEdad(Integer edad) {
 		this.edad = edad;
 	}
-	public Integer getTelefono() {
+	public String getTelefono() {
 		return telefono;
 	}
-	public void setTelefono(Integer telefono) {
+	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
 	public String getMunicipio() {
@@ -170,16 +158,11 @@ public class Usuario implements Serializable{
 	}
 	@Override
 	public String toString() {
-		return "Usuario [tipoDocumento=" + tipodocumento + ", numeroDocumento=" + numerodocumento + ", nombre=" + nombre
-				+ ", apellido=" + apellido + ", tipoSangre=" + tiposangre + ", factorSangre=" + factorsangre
-				+ ", fechaNacimiento=" + fechanacimiento + ", direccionResidencia=" + direccionresidencia + ", edad="
-				+ edad + ", telefono=" + telefono + ", municipio=" + municipio + ", email=" + email + ", estatura="
-				+ estatura + "]";
+		return "Ciudadano [idCiudadano=" + idCiudadano + ", tipoDocumento=" + tipoDocumento + ", numeroDocumento="
+				+ numeroDocumento + ", nombre=" + nombre + ", apellido=" + apellido + ", tipoSangre=" + tipoSangre
+				+ ", factorSangre=" + factorSangre + ", fechaNacimiento=" + fechaNacimiento + ", direccionResidencia="
+				+ direccionResidencia + ", edad=" + edad + ", telefono=" + telefono + ", municipio=" + municipio
+				+ ", email=" + email + ", estatura=" + estatura + ", Port=" + Port + "]";
 	}
-	
-	
-	
-	
-	
 	
 }

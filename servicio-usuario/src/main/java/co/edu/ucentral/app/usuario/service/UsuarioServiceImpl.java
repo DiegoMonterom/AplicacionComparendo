@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import co.edu.ucentral.app.usuario.model.Usuario;
+import co.edu.ucentral.app.usuario.model.Ciudadano;
 import co.edu.ucentral.app.usuario.repository.UsuarioRepository;
 
 
@@ -22,27 +22,27 @@ public class UsuarioServiceImpl implements IUsuarioService {
 
 	@Override
 	@Transactional (readOnly = true)
-	public List<Usuario> findAll() {
+	public List<Ciudadano> findAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	@Transactional (readOnly = true)
-	public Usuario buscar(Integer id) {
+	public Ciudadano buscar(Integer id) {
 		
 	
 		return usuarioRepo.findById(id).orElse(null);
 	}
 
 	@Override
-	public void insertarUsuario(Usuario usuario) {
+	public void insertarUsuario(Ciudadano usuario) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void actualizarUsuario(Usuario usuario) {
+	public void actualizarUsuario(Ciudadano usuario) {
 		// TODO Auto-generated method stub
 		
 	}

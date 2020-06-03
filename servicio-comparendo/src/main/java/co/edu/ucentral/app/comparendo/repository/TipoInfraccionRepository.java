@@ -3,9 +3,9 @@ package co.edu.ucentral.app.comparendo.repository;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import co.edu.ucentral.app.comparendo.model.Comparendo;
+import co.edu.ucentral.app.comparendo.model.TipoInfraccion;
 
 @Repository
-public interface ComparendoRepository extends CrudRepository<Comparendo, Integer> {
+public interface TipoInfraccionRepository extends CrudRepository<TipoInfraccion, Integer> {
 
 }

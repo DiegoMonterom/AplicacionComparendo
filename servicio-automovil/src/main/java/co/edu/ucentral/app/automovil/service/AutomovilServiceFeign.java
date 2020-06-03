@@ -24,13 +24,13 @@ public class AutomovilServiceFeign implements IAutomovilService{
 	@Autowired
 	private RestTemplate clienteRest;
 	
-	
+	@Override
 	public boolean validarPropietario(Integer idPropietario) {
 		System.out.println("servicio rest" + idPropietario);
 		Map<String, String> variables = new HashMap<String, String>();
 		variables.put("id", idPropietario.toString());
 		System.out.println("map auto" + variables.get("id"));
-		Usuario usuario = clienteRest.getForObject("http://localhost:58146/buscar/{id}", Usuario.class, variables);
+		Usuario usuario = clienteRest.getForObject("http://localhost:54736/buscar/{id}", Usuario.class, variables);
 		System.out.println("HASTA AQUI LLEGA");
 		
 		

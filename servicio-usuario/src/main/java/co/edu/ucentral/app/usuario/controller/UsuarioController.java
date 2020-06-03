@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-import co.edu.ucentral.app.usuario.model.Usuario;
+import co.edu.ucentral.app.usuario.model.Ciudadano;
 import co.edu.ucentral.app.usuario.service.IUsuarioService;
 
 @RestController
@@ -23,7 +23,7 @@ public class UsuarioController {
 	private Integer port;
 
 	@GetMapping("/listar")
-	public List<Usuario> listarUsuario()
+	public List<Ciudadano> listarUsuario()
 	
 	{
 		
@@ -32,14 +32,14 @@ public class UsuarioController {
 	}
 	
 	@GetMapping("/buscar/{id}")
-	public Usuario buscar(@PathVariable Integer id)
+	public Ciudadano buscar(@PathVariable Integer id)
 	{
 	System.out.println("ENTRA AL CONTROLADOR DE USUARIO");
 		return  usuarioService.buscar(id);
 	}
 	
 	@GetMapping("/insertar")
-	public void insertarUsuario(Usuario usuario)
+	public void insertarUsuario(Ciudadano usuario)
 	{
 		
 		usuarioService.insertarUsuario(usuario);
@@ -47,13 +47,10 @@ public class UsuarioController {
 	}
 	
 	@GetMapping("/actualizar")
-	public void actualizarUsuario(Usuario usuario)
+	public void actualizarUsuario(Ciudadano usuario)
 	{
 		usuarioService.actualizarUsuario(usuario);
 		
 	}
 	
-	
-
-
 }
