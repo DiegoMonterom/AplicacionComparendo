@@ -13,10 +13,12 @@ import javax.persistence.Transient;
 @Entity
 @Table (name="automoviles")
 public class Automovil implements Serializable{
+
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -8138319100706758750L;
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	private String placa;
 	private Integer idPropietario;
@@ -159,4 +161,8 @@ public class Automovil implements Serializable{
 				+ fechMatricula + ", numeroPuertas=" + numeroPuertas + "]";
 	}
 
+	
+	
+	
+	
 }
