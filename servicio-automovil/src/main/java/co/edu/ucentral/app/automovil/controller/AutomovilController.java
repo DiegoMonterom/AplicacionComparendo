@@ -20,8 +20,9 @@ import co.edu.ucentral.app.automovil.service.IAutomovilService;
 public class AutomovilController {
 
 
-	//@Qualifier ("serviceFeign")
+	
 	@Autowired
+	@Qualifier ("serviceFeign")
 	private IAutomovilService automovilService;
 	
 	
@@ -64,11 +65,18 @@ public class AutomovilController {
 		
 	}
 	
-	@GetMapping("/prueba")
-	public boolean prueba()
+	@GetMapping("/prueba/{id}")
+	public boolean prueba(@PathVariable("id") Integer id)
 	{
 		System.out.println("controlador auto");
+<<<<<<< HEAD
 		return automovilService.prueba();
 	}	
+=======
+		return automovilService.prueba(id);
+	}
+	
+	
+>>>>>>> branch 'master' of https://github.com/DiegoMonterom/AplicacionComparendo.git
 
 }
