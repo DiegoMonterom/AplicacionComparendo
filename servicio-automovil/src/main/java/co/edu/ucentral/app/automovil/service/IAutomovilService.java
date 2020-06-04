@@ -12,5 +12,5 @@ public interface IAutomovilService {
 	public void insertarAutomovil(Automovil automovil);
 	public void actualizarAutomovil(Automovil automovil);
 	public boolean validarPropietario(Integer idPropietario);
-	public boolean prueba();
+	public boolean prueba(Integer id);
 }

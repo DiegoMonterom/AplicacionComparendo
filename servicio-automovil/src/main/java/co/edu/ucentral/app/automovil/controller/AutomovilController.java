@@ -19,8 +19,9 @@ import co.edu.ucentral.app.automovil.service.IAutomovilService;
 public class AutomovilController {
 
 
-	//@Qualifier ("serviceFeign")
+	
 	@Autowired
+	@Qualifier ("serviceFeign")
 	private IAutomovilService automovilService;
 	
 	
@@ -63,11 +64,11 @@ public class AutomovilController {
 		
 	}
 	
-	@GetMapping("/prueba")
-	public boolean prueba()
+	@GetMapping("/prueba/{id}")
+	public boolean prueba(@PathVariable("id") Integer id)
 	{
 		System.out.println("controlador auto");
-		return automovilService.prueba();
+		return automovilService.prueba(id);
 	}
 	
 	

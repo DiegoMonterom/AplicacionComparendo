@@ -56,8 +56,7 @@ public class Usuario implements Serializable{
 	private String email;
 	//@Column
 	private double estatura;
-	//@Transient
-	private Integer Port;
+	
 	
 	
 	
@@ -162,12 +161,7 @@ public class Usuario implements Serializable{
 	public void setEstatura(double estatura) {
 		this.estatura = estatura;
 	}
-	public Integer getPort() {
-		return Port;
-	}
-	public void setPort(Integer port) {
-		Port = port;
-	}
+
 	@Override
 	public String toString() {
 		return "Usuario [tipoDocumento=" + tipodocumento + ", numeroDocumento=" + numerodocumento + ", nombre=" + nombre

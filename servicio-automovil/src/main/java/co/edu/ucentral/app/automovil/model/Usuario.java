@@ -22,7 +22,7 @@ public class Usuario {
 	//@Column
 	private String factorsangre;
 	//@Column
-	@Temporal (TemporalType.DATE)
+	//@Temporal (TemporalType.DATE)
 	private Date fechanacimiento;
 	//@Column
 	private String direccionresidencia;
@@ -36,10 +36,8 @@ public class Usuario {
 	private String email;
 	//@Column
 	private double estatura;
-	private Integer Port;
 	
-	
-	
+
 	
 	public Integer getNumerodocumento() {
 		return numerodocumento;
@@ -118,12 +116,6 @@ public class Usuario {
 	}
 	public void setEstatura(double estatura) {
 		this.estatura = estatura;
-	}
-	public Integer getPort() {
-		return Port;
-	}
-	public void setPort(Integer port) {
-		Port = port;
 	}
 	
 	

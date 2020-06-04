@@ -19,16 +19,13 @@ public class UsuarioController {
 	@Autowired
 	private IUsuarioService usuarioService;
 	
-	@Value("${server.port}")
-	private Integer port;
 
 	@GetMapping("/listar")
 	public List<Usuario> listarUsuario()
 	
 	{
 		
-		return  usuarioService.findAll().stream().map(usuario->{usuario.setPort(port); return usuario;
-		}).collect(Collectors.toList());
+		return  usuarioService.findAll();
 	}
 	
 	@GetMapping("/buscar/{id}")
