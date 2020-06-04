@@ -36,10 +36,8 @@ public class UsuarioController {
 	
 	@GetMapping("/insertarciudadano")
 	public void insertarCiudadano(Ciudadano ciudadano)
-	{
-		
+	{		
 		ciudadanoService.insertarCiudadano(ciudadano);
-		
 	}
 	
 	@GetMapping("/actualizarciudadano")
