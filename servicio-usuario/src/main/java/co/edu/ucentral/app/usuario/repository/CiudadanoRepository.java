@@ -1,11 +1,15 @@
 package co.edu.ucentral.app.usuario.repository;
 
+import java.util.Optional;
+
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import co.edu.ucentral.app.usuario.model.Ciudadano;
 
 @Repository
-public interface UsuarioRepository extends CrudRepository<Ciudadano, Integer> {
+public interface CiudadanoRepository extends CrudRepository<Ciudadano, Integer> {
+
+	Optional<Ciudadano> findbyNumeroDocumentoCiudadano(Integer numeroDocumento);
 
 }

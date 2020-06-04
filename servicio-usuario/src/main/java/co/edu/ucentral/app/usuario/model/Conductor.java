@@ -23,6 +23,10 @@ public class Conductor extends Ciudadano implements Serializable{
 	private Date fechaVencimiento;
 	private Integer categoria;
 
+	public Conductor() {
+		
+	}
+	
 	public Conductor(String tipoDocumento, Integer numeroDocumento, String nombre, String apellido, char tipoSangre,
 			String factorSangre, Date fechaNacimiento, String direccionResidencia, Integer edad, String telefono,
 			String municipio, String email, double estatura) {

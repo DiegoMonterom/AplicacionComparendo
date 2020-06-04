@@ -27,6 +27,10 @@ public class Policia implements Serializable{
 	private String placaPolicia;
 	private String entidadPolicia;
 	
+	public Policia() {
+		
+	}
+	
 	public Policia(Integer idPolicia, String tipoDocumentoPolicia, Integer numeroDocumentoPolicia, String nombrePolicia,
 			String apellidoPolicia, Integer numeroPolicia, String placaPolicia, String entidadPolicia) {
 		super();

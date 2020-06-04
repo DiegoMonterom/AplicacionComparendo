@@ -5,6 +5,7 @@ import java.sql.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -18,9 +19,9 @@ public class Comparendo implements Serializable{
 	private static final long serialVersionUID = -5936498238810961046L;
 	
 	@Id
-	@GeneratedValue
-	private int idComaprendo;
-	private String numeroComaprendo;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int idComparendo;
+	private String numeroComparendo;
 	private Date fechaInfraccion;
 	private boolean accidente;
 	private boolean reportaFuga;
@@ -28,11 +29,15 @@ public class Comparendo implements Serializable{
 	private Date horaInfraccion;
 	private String estado;
 	
-	public Comparendo(int idComaprendo, String numeroComaprendo, Date fechaInfraccion, boolean accidente,
+	public Comparendo() {
+		
+	}
+	
+	public Comparendo(int idComparendo, String numeroComparendo, Date fechaInfraccion, boolean accidente,
 			boolean reportaFuga, boolean inmovilizacion, Date horaInfraccion, String estado) {
 		super();
-		this.idComaprendo = idComaprendo;
-		this.numeroComaprendo = numeroComaprendo;
+		this.idComparendo = idComparendo;
+		this.numeroComparendo = numeroComparendo;
 		this.fechaInfraccion = fechaInfraccion;
 		this.accidente = accidente;
 		this.reportaFuga = reportaFuga;
@@ -41,20 +46,20 @@ public class Comparendo implements Serializable{
 		this.estado = estado;
 	}
 
-	public int getIdComaprendo() {
-		return idComaprendo;
+	public int getIdComparendo() {
+		return idComparendo;
 	}
 
-	public void setIdComaprendo(int idComaprendo) {
-		this.idComaprendo = idComaprendo;
+	public void setIdComparendo(int idComparendo) {
+		this.idComparendo = idComparendo;
 	}
 
-	public String getNumeroComaprendo() {
-		return numeroComaprendo;
+	public String getNumeroComparendo() {
+		return numeroComparendo;
 	}
 
-	public void setNumeroComaprendo(String numeroComaprendo) {
-		this.numeroComaprendo = numeroComaprendo;
+	public void setNumeroComparendo(String numeroComparendo) {
+		this.numeroComparendo = numeroComparendo;
 	}
 
 	public Date getFechaInfraccion() {
@@ -107,7 +112,7 @@ public class Comparendo implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Comparendo [idComaprendo=" + idComaprendo + ", numeroComaprendo=" + numeroComaprendo
+		return "Comparendo [idComaprendo=" + idComparendo + ", numeroComaprendo=" + numeroComparendo
 				+ ", fechaInfraccion=" + fechaInfraccion + ", accidente=" + accidente + ", reportaFuga=" + reportaFuga
 				+ ", inmovilizacion=" + inmovilizacion + ", horaInfraccion=" + horaInfraccion + ", estado=" + estado
 				+ "]";

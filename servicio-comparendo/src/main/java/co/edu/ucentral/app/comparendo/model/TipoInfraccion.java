@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -17,11 +18,15 @@ public class TipoInfraccion implements Serializable{
 	private static final long serialVersionUID = 6947885607949565674L;
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer idTipoInfraccion;
 	private String codigoInfraccion;
 	private Integer costoInfraccion;
 	private String descripcionInfraccion;
+	
+	public TipoInfraccion() {
+		
+	}
 	
 	public TipoInfraccion(Integer idTipoInfraccion, String codigoInfraccion, Integer costoInfraccion,
 			String descripcionInfraccion) {

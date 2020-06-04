@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -17,12 +18,16 @@ public class Inmovilizacion implements Serializable{
 	private static final long serialVersionUID = -47473030423353341L;
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer idInmovilizacion;
 	private Integer numeroPatio;
 	private String direccionPatio;
 	private Integer numeroGrua;
 	private String placaGrua;
+	
+	public Inmovilizacion() {
+		
+	}
 	
 	public Inmovilizacion(Integer idInmovilizacion, Integer numeroPatio, String direccionPatio, Integer numeroGrua,
 			String placaGrua) {

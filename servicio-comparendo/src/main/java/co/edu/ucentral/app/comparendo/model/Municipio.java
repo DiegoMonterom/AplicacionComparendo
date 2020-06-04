@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -17,10 +18,14 @@ public class Municipio implements Serializable{
 	private static final long serialVersionUID = -8059556088125476198L;
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer idMunicipio;
 	private Integer codigoPostalMunicipio;
 	private String nombreMunicipio;
+	
+	public Municipio() {
+		
+	}
 	
 	public Municipio(Integer idMunicipio, Integer codigoPostalMunicipio, String nombreMunicipio) {
 		super();

@@ -27,6 +27,10 @@ public class Funcionario implements Serializable{
 	@Transient
 	private String confirmarContraseña;
 	
+	public Funcionario() {
+		
+	}
+	
 	public Funcionario(Integer idFuncionario, String nombreFuncionario, String apellidoFuncionario,
 			String nombreUsuario, String contraseña, String confirmarContraseña) {
 		super();
