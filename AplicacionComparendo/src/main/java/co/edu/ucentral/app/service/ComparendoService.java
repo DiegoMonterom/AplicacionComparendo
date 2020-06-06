@@ -2,14 +2,19 @@ package co.edu.ucentral.app.service;
 
 
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 import co.edu.ucentral.app.model.Automovil;
+import co.edu.ucentral.app.model.Ciudadano;
 import co.edu.ucentral.app.model.Comparendo;
+import co.edu.ucentral.app.model.Conductor;
+import co.edu.ucentral.app.model.Funcionario;
+import co.edu.ucentral.app.model.Policia;
 import co.edu.ucentral.app.model.Usuario;
 
 @Service
@@ -17,7 +22,7 @@ public class ComparendoService implements IComparendoService{
 
 	
 	
-	
+
 	@Override
 	public void login(String username, String password) {
 		
@@ -30,9 +35,8 @@ public class ComparendoService implements IComparendoService{
 	public void registrarAutomovil(Automovil automovil) {
 		System.out.println("LLEGA AL SERVICE REGISTRAR AUTO");
 		// TODO: CONECTAR CON SERVICIO AUTOMOVIL
-		
-		
 
+		
 	}
 
 	@Override
@@ -47,6 +51,32 @@ public class ComparendoService implements IComparendoService{
 		
 	}
 
+	
+	@Override
+	public void registrarCiudadano(Ciudadano usuario) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void registrarConductor(Conductor usuario) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void registrarFuncionario(Funcionario usuario) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void registrarPolicia(Policia usuario) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
 	@Override
 	public void actualizarAutomovil(Automovil automovil) {
 		// TODO: CONECTAR CON SERVICIO AUTOMOVIL
@@ -68,8 +98,15 @@ public class ComparendoService implements IComparendoService{
 		
 		Automovil auto = null;
 		
-			auto = new Automovil("f", 123, 456, "prueba", "prueba", 1,"prueba", 789, "prueba", "prueba", "prueba", "prueba", "03-06-2020", 4);
-	
+		
+				auto = new Automovil("f", 123, 456, "prueba", "prueba", 1,"prueba", 789, "prueba", "prueba", "prueba", "prueba","03-06-2020" , 4);
+				/*
+				try {
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	*/
 		
 		return auto; 
 	}
@@ -103,6 +140,7 @@ public class ComparendoService implements IComparendoService{
 		// TODO Auto-generated method stub
 		return null;
 	}
+
 
 	
 	

@@ -1,4 +1,4 @@
-package co.edu.ucentral.app.usuario.model;
+package co.edu.ucentral.app.model;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -6,17 +6,18 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 
+import org.hibernate.annotations.GenericGenerator;
 
-@MappedSuperclass
-public class Usuario implements Serializable{
-
-
+@Entity
+@Table (name="ciudadanos")
+public class Ciudadano implements Serializable{
 
 	/**
 	 * 
@@ -25,40 +26,34 @@ public class Usuario implements Serializable{
 	
 	//@GeneratedValue(strategy=GenerationType.AUTO, generator="native")
 	//@GenericGenerator(name="native",strategy="native")
-	//@Id
-	//@GeneratedValue
-	//@Column(name="idciudadano")
-	//private Integer idciudadano;
-	@Column(name="tipodocumento")
-	protected String tipoDocumento;
-	protected Integer cedula;
-	protected String nombre;
-	protected String apellido;
-	@Column(name="tiposangre")
-	protected char tipoSangre;
-	@Column(name="factorsangre")
-	protected String factorSangre;
+	@Id
+	@GeneratedValue
+	private Integer idCiudadano;
+	private String tipoDocumento;
+	private Integer numeroDocumento;
+	private String nombre;
+	private String apellido;
+	private char tipoSangre;
+	private String factorSangre;
 	@Temporal (TemporalType.DATE)
-	@Column(name="fechanacimiento")
-	protected Date fechaNacimiento;
-	@Column(name="direccionresidencia")
-	protected String direccionResidencia;
-	protected Integer edad;
-	protected String telefono;
-	protected String municipio;
-	protected String email;
-	protected double estatura;
+	private Date fechaNacimiento;
+	private String direccionResidencia;
+	private Integer edad;
+	private String telefono;
+	private String municipio;
+	private String email;
+	private double estatura;
 	//@Transient
-	//private Integer Port;
-
-
-	public Usuario() {
+	private Integer Port;
+	
+	
+	public Ciudadano() {
 	}
-	public Usuario(String tipoDocumento, Integer numeroDocumento, String nombre, String apellido, char tipoSangre,
-			String factorSangre, Date fechaNacimiento, String municipio ,String direccionResidencia, Integer edad, String telefono,
-			 String email, double estatura) {
+	public Ciudadano(String tipoDocumento, Integer numeroDocumento, String nombre, String apellido, char tipoSangre,
+			String factorSangre, Date fechaNacimiento, String direccionResidencia, Integer edad, String telefono,
+			String municipio, String email, double estatura) {
 		this.tipoDocumento = tipoDocumento;
-		this.cedula = numeroDocumento;
+		this.numeroDocumento = numeroDocumento;
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.tipoSangre = tipoSangre;
@@ -71,14 +66,12 @@ public class Usuario implements Serializable{
 		this.email = email;
 		this.estatura = estatura;
 	}
-	/*
 	public Integer getIdCiudadano() {
-		return idciudadano;
+		return idCiudadano;
 	}
 	public void setIdCiudadano(Integer idCiudadano) {
-		this.idciudadano = idCiudadano;
+		this.idCiudadano = idCiudadano;
 	}
-	*/
 	public String getTipoDocumento() {
 		return tipoDocumento;
 	}
@@ -86,10 +79,10 @@ public class Usuario implements Serializable{
 		this.tipoDocumento = tipoDocumento;
 	}
 	public Integer getNumeroDocumento() {
-		return cedula;
+		return numeroDocumento;
 	}
 	public void setNumeroDocumento(Integer numeroDocumento) {
-		this.cedula = numeroDocumento;
+		this.numeroDocumento = numeroDocumento;
 	}
 	public String getNombre() {
 		return nombre;
@@ -139,14 +132,12 @@ public class Usuario implements Serializable{
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
-	
 	public String getMunicipio() {
 		return municipio;
 	}
 	public void setMunicipio(String municipio) {
 		this.municipio = municipio;
 	}
-	
 	public String getEmail() {
 		return email;
 	}
@@ -159,20 +150,19 @@ public class Usuario implements Serializable{
 	public void setEstatura(double estatura) {
 		this.estatura = estatura;
 	}
-
-	public Integer getCedula() {
-		return cedula;
+	public Integer getPort() {
+		return Port;
 	}
-	public void setCedula(Integer cedula) {
-		this.cedula = cedula;
+	public void setPort(Integer port) {
+		Port = port;
 	}
 	@Override
 	public String toString() {
-		return "Ciudadano [" + ", tipoDocumento=" + tipoDocumento + ", numeroDocumento="
-				+ cedula + ", nombre=" + nombre + ", apellido=" + apellido + ", tipoSangre=" + tipoSangre
+		return "Ciudadano [idCiudadano=" + idCiudadano + ", tipoDocumento=" + tipoDocumento + ", numeroDocumento="
+				+ numeroDocumento + ", nombre=" + nombre + ", apellido=" + apellido + ", tipoSangre=" + tipoSangre
 				+ ", factorSangre=" + factorSangre + ", fechaNacimiento=" + fechaNacimiento + ", direccionResidencia="
-				+ direccionResidencia + ", edad=" + edad + ", telefono=" + telefono 
-				+ ", email=" + email + ", estatura=" + estatura + "]";
+				+ direccionResidencia + ", edad=" + edad + ", telefono=" + telefono + ", municipio=" + municipio
+				+ ", email=" + email + ", estatura=" + estatura + ", Port=" + Port + "]";
 	}
-
+	
 }

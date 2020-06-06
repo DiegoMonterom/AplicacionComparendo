@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import co.edu.ucentral.app.model.Automovil;
 import co.edu.ucentral.app.model.Comparendo;
-import co.edu.ucentral.app.model.Funcionario;
+import co.edu.ucentral.app.model.Login;
 import co.edu.ucentral.app.model.Usuario;
 
 @Controller
@@ -45,7 +45,7 @@ public class menuController {
 	@GetMapping("/insertarUsuario")
 	public String TriggerInsertarUsuario(Model modelo, @ModelAttribute Usuario usuario)
 	{
-		return "usuarios/insertarUsuario";
+		return "usuarios/menuUsuarios";
 	}
 	
 	@GetMapping("/consultarUsuario")

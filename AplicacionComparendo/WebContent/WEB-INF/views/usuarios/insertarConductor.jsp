@@ -30,21 +30,24 @@
 	
 		
 		
-		<form:form action="${urlForm}" method="post" modelAttribute="usuario">
+		<form:form action="${urlForm}" method="post" modelAttribute="conductor">
 			<div class="row">
 				
-				<div class="col-sm-3">
+					<div class="col-sm-3">
 					<div class="form-group">
-						<label for="path">tipo documento</label> <form:input type="text" 
-							class="form-control" path="tipodocumento" id="tipodocumento"
-							required="required" />
+						<label for="path">tipo documento</label> <form:select  
+							class="form-control" path="tipoDocumento" id="tipoDocumento"
+							required="required" >
+								<form:option value="cedula">Cedula</form:option>
+          					<form:option value="Tarjeta">Tarjeta de identidad</form:option>
+          					</form:select>
 					</div>
 				</div>
 				
 					<div class="col-sm-3">
 					<div class="form-group">
 						<label for="path">numero documento</label> <form:input  
-							class="form-control" path="numerodocumento" id="numerodocumento"
+							class="form-control" path="numeroDocumento" id="numeroDocumento"
 							required="required" />
 					</div>
 				</div>
@@ -67,26 +70,34 @@
 				
 					<div class="col-sm-3">
 					<div class="form-group">
-						<label for="path">tipo sangre</label> <form:input  
-							class="form-control" path="tiposangre" id="tiposangre"
-							required="required" />
+						<label for="path">tipo sangre</label> <form:select  
+							class="form-control" path="tipoSangre" id="tipoSangre"
+							required="required" >
+								<form:option value="A">A</form:option>
+          					<form:option value="B">B</form:option>
+          					<form:option value="O">O</form:option>
+          					<form:option value="c">AB</form:option>
+          					</form:select>
 					</div>
 				</div>
 				
 				
 					<div class="col-sm-3">
 					<div class="form-group">
-						<label for="path">factor sangre</label> <form:input  
-							class="form-control" path="factorsangre" id="factorsangre"
-							required="required" />
+						<label for="path">factor sangre</label> <form:select  
+							class="form-control" path="factorSangre" id="factorSangre"
+							required="required" >
+							<form:option value="-">+</form:option>
+          					<form:option value="+">-</form:option>
+          					</form:select>
 					</div>
 				</div>
 				
 				
 					<div class="col-sm-3">
 					<div class="form-group">
-						<label for="path">fecha nacimiento</label> <form:input  
-							class="form-control" path="fechanacimiento" id="fechanacimiento"
+						<label for="path">fecha nacimiento</label> <form:input  type="date"
+							class="form-control" path="fechaNacimiento" id="fechaNacimiento"
 							required="required" />
 					</div>
 				</div>
@@ -95,7 +106,7 @@
 					<div class="col-sm-3">
 					<div class="form-group">
 						<label for="path">direccion residencia</label> <form:input  
-							class="form-control" path="direccionresidencia" id="direccionresidencia"
+							class="form-control" path="direccionResidencia" id="direccionResidencia"
 							required="required" />
 					</div>
 				</div>
@@ -148,6 +159,30 @@
 				
 				
 				
+				<div class="col-sm-3">
+					<div class="form-group">
+						<label for="path">numero Licencia</label> <form:input  
+							class="form-control" path="numeroLicencia" id="numeroLicencia"
+							required="required" />
+					</div>
+				</div>
+				
+				<div class="col-sm-3">
+					<div class="form-group">
+						<label for="path">fecha Vencimiento Licencia</label> <form:input  
+							class="form-control" path="fechaVencimiento" id="fechaVencimiento"
+							required="required" />
+					</div>
+				</div>
+				
+				<div class="col-sm-3">
+					<div class="form-group">
+						<label for="path">categoria</label> <form:input  
+							class="form-control" path="categoria" id="categoria"
+							required="required" />
+					</div>
+				</div>
+				
 				
 				
 				
@@ -186,11 +221,63 @@
 	<script src="${urlPublic}/bootstrap/js/bootstrap.min.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script>
-		$(function() {
-			$("#fechanacimiento").datepicker({
-				dateFormat : 'dd-mm-yy'
-			});
+	$(function() {
+
+		$("#fechaNacimiento").datetimepicker({
+			dateFormat : 'dd-mm-yy'
 		});
+	});
+
+		$(function(){
+
+		$("#bEnviar").click(function(){
+
+			//var tipoDocumento = $("#tipoDocumento").val();
+			var numeroDocumento = $("#numeroDocumento").val();
+			var nombre = $("#nombre").val();
+			var apellido = $("#apellido").val();
+			//var tipoSangre = $("#tipoSangre").val();
+			//var factorSangre = $("#factorSangre").val();
+			var direccionResidencia = $("#direccionResidencia").val();
+			var edad = $("#edad").val();
+			var telefono = $("#telefono").val();
+			var municipio = $("#municipio").val();
+			var email = $("#email").val();
+			var estatura = $("#estatura").val();
+			
+			
+			
+			
+			if(isNaN(numeroDocumento))
+				{
+						alert("EL DOCUMENTO NO ES VALIDO")
+						return false;
+				}
+			if(isNaN(edad))	
+				{
+
+						alert("EL ID NO ES VALIDO");
+						return false;
+				}
+			if(isNaN(telefono))
+				{
+
+				alert("LA LICENCIA NO ES VALIDA");
+				return false;
+
+				}
+			if(isNaN(estatura))
+			{
+
+			alert("EL MODELO NO ES VALIDO");
+			return false;
+
+			}
+			
+			});
+
+		});
+
 		
 	</script>
 </body>

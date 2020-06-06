@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -40,12 +41,12 @@ public class comparendoController {
 	/////////////////////////////METODOS DE COMPARENDO//////////////////////////////////////////////////////////
 	
 	@GetMapping("/insertarcomparendo")
-	public void insertarComparendo(Comparendo comparendo) {
+	public void insertarComparendo(@ModelAttribute Comparendo comparendo) {
 		comparendoService.insertarComparendo(comparendo);
 	}
 	
 	@GetMapping("/actualizarcomparendo")
-	public void actualizarComparendo(Comparendo comparendo) {
+	public void actualizarComparendo(@ModelAttribute Comparendo comparendo) {
 		comparendoService.actualizarComparendo(comparendo);
 	}
 	
@@ -63,14 +64,14 @@ public class comparendoController {
 	/////////////////////////////METODOS DE INMOVILIZACION//////////////////////////////////////////////////////////
 	
 	@GetMapping("/insertarinmovilizacion")
-	public void insertarInmovilizacion(Inmovilizacion inmovilizacion) {
+	public void insertarInmovilizacion(@ModelAttribute Inmovilizacion inmovilizacion) {
 		inmovilizacionService.insertarInmovilizacion(inmovilizacion);
 	}
 	
 	/////////////////////////////METODOS DE LUGAR INFRACCION//////////////////////////////////////////////////////////
 	
 	@GetMapping("/insertarlugarinfraccion")
-	public void insertarLugarInfraccion(LugarInfraccion lugarInfraccion) {
+	public void insertarLugarInfraccion(@ModelAttribute LugarInfraccion lugarInfraccion) {
 		lugarInfraccionService.insertarLugarInfraccion(lugarInfraccion);
 	}
 	
@@ -83,7 +84,7 @@ public class comparendoController {
 	}
 	
 	@GetMapping("/buscarmunicipio/{idMunicipio}")
-	public Municipio findById(Integer idMunicipio) {
+	public Municipio findById(@ModelAttribute Integer idMunicipio) {
 		Optional<Municipio> opt = municipioService.findById(idMunicipio);
 		Municipio municipioBus = new Municipio();
 		if(opt.isPresent())
@@ -102,7 +103,7 @@ public class comparendoController {
 	}
 	
 	@GetMapping("/buscartipoinfraccion/{idTipoInfraccion}")
-	public TipoInfraccion findByIdTipoInfraccion(Integer idTipoInfraccion) {
+	public TipoInfraccion findByIdTipoInfraccion(@PathVariable Integer idTipoInfraccion) {
 		Optional<TipoInfraccion> opt = tipoInfraccionService.findById(idTipoInfraccion);
 		TipoInfraccion tipoInfraccionBus = new TipoInfraccion();
 		if(opt.isPresent())

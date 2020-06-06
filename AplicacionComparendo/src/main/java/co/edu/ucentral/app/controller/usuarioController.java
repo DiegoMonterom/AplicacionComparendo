@@ -9,6 +9,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import co.edu.ucentral.app.model.Ciudadano;
+import co.edu.ucentral.app.model.Conductor;
+import co.edu.ucentral.app.model.Funcionario;
+import co.edu.ucentral.app.model.Policia;
 import co.edu.ucentral.app.model.Usuario;
 import co.edu.ucentral.app.service.IComparendoService;
 
@@ -21,13 +25,39 @@ public class usuarioController {
 	@Autowired
 	private IComparendoService usuarioService;
 	
-	@PostMapping("/insertarUsuario")
-	public String registrarUsuario(@ModelAttribute Usuario usuario,Model modelo)
+	@PostMapping("/insertarCiudadano")
+	public String registrarCiudadano(@ModelAttribute Ciudadano usuario,Model modelo)
 	{
-		usuarioService.registrarUsuario(usuario);
+		usuarioService.registrarCiudadano(usuario);
 		
-		return "usuarios/registrarUsuario";
+		return "usuarios/insertarCiudadano";
 	}
+	
+	@PostMapping("/insertarConductor")
+	public String registrarConductor(@ModelAttribute Conductor usuario,Model modelo)
+	{
+		usuarioService.registrarConductor(usuario);
+		
+		return "usuarios/insertarConductor";
+	}
+	
+	
+	@PostMapping("/insertarFuncionario")
+	public String registrarFuncionario(@ModelAttribute Funcionario usuario,Model modelo)
+	{
+		usuarioService.registrarFuncionario(usuario);
+		
+		return "usuarios/insertarFuncionario";
+	}
+	
+	@PostMapping("/insertarPolicia")
+	public String registrarPolicia(@ModelAttribute Policia usuario,Model modelo)
+	{
+		usuarioService.registrarPolicia(usuario);
+		
+		return "usuarios/insertarPolicia";
+	}
+	
 	
 	@GetMapping("/consultarUsuario/{numeroIdentificacion}")
 	public String consultarUsuario(@PathVariable Integer numeroIdentificacion,Model modelo)

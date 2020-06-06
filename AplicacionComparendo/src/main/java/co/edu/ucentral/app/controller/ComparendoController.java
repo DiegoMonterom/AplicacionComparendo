@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import co.edu.ucentral.app.model.Comparendo;
@@ -22,7 +23,7 @@ public class ComparendoController {
 	private IComparendoService comparendoService;
 	
 	
-	@GetMapping("/insertarComparendo")
+	@PostMapping("/insertarComparendo")
 	public String registrarComparendo(@ModelAttribute Comparendo comparendo,Model modelo)
 	{
 		comparendoService.registrarComparendo(comparendo);

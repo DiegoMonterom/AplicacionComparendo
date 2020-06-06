@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="author" content="">
-<title>Login</title>
+<title>MENU PRINCIPAL</title>
 
 <spring:url value="/resources" var="urlPublic"></spring:url>
 <spring:url value="menuPrincipal/insertarAuto" var="auto1"></spring:url>

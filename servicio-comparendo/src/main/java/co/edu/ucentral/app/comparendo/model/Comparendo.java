@@ -3,6 +3,7 @@ package co.edu.ucentral.app.comparendo.model;
 import java.io.Serializable;
 import java.sql.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,12 +21,17 @@ public class Comparendo implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="idcomparendo")
 	private int idComparendo;
+	@Column(name="numerocomparendo")
 	private String numeroComparendo;
+	@Column(name="fechainfraccion")
 	private Date fechaInfraccion;
 	private boolean accidente;
+	@Column(name="reportafuga")
 	private boolean reportaFuga;
 	private boolean inmovilizacion;
+	@Column(name="horainfraccion")
 	private Date horaInfraccion;
 	private String estado;
 	

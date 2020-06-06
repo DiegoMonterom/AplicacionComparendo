@@ -1,4 +1,4 @@
-package co.edu.ucentral.app.usuario.model;
+package co.edu.ucentral.app.model;
 
 import java.io.Serializable;
 
@@ -20,7 +20,7 @@ public class Policia implements Serializable{
 	@GeneratedValue
 	private Integer idPolicia;
 	private String tipoDocumentoPolicia;
-	private Integer cedula;
+	private Integer numeroDocumentoPolicia;
 	private String nombrePolicia;
 	private String apellidoPolicia;
 	private Integer numeroPolicia;
@@ -36,7 +36,7 @@ public class Policia implements Serializable{
 		
 		this.idPolicia = idPolicia;
 		this.tipoDocumentoPolicia = tipoDocumentoPolicia;
-		this.cedula = numeroDocumentoPolicia;
+		this.numeroDocumentoPolicia = numeroDocumentoPolicia;
 		this.nombrePolicia = nombrePolicia;
 		this.apellidoPolicia = apellidoPolicia;
 		this.numeroPolicia = numeroPolicia;
@@ -61,11 +61,11 @@ public class Policia implements Serializable{
 	}
 
 	public Integer getNumeroDocumentoPolicia() {
-		return cedula;
+		return numeroDocumentoPolicia;
 	}
 
 	public void setNumeroDocumentoPolicia(Integer numeroDocumentoPolicia) {
-		this.cedula = numeroDocumentoPolicia;
+		this.numeroDocumentoPolicia = numeroDocumentoPolicia;
 	}
 
 	public String getNombrePolicia() {
@@ -111,7 +111,7 @@ public class Policia implements Serializable{
 	@Override
 	public String toString() {
 		return "Policia [idPolicia=" + idPolicia + ", tipoDocumentoPolicia=" + tipoDocumentoPolicia
-				+ ", numeroDocumentoPolicia=" + cedula + ", nombrePolicia=" + nombrePolicia
+				+ ", numeroDocumentoPolicia=" + numeroDocumentoPolicia + ", nombrePolicia=" + nombrePolicia
 				+ ", apellidoPolicia=" + apellidoPolicia + ", numeroPolicia=" + numeroPolicia + ", placaPolicia="
 				+ placaPolicia + ", entidadPolicia=" + entidadPolicia + "]";
 	}

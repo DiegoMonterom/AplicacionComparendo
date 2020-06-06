@@ -30,7 +30,7 @@
 	
 		
 		
-		<form:form action="${urlForm}" method="post" modelAttribute="automovil">
+		<form:form action="${urlForm}" method="post" modelAttribute="automovil" name="formulario">
 			<div class="row">
 				
 				<div class="col-sm-3">
@@ -38,6 +38,7 @@
 						<label for="placa">placa</label> <form:input type="text" 
 							class="form-control" path="placa" id="placa"
 							required="required" />
+							
 					</div>
 				</div>
 				
@@ -140,7 +141,7 @@
 				
 					<div class="col-sm-3">
 					<div class="form-group">
-						<label for="fechMatricula">fecha Matricula</label> <form:input  
+						<label for="fechMatricula">fecha Matricula</label> <form:input type="date"
 							class="form-control" path="fechMatricula" id="fechMatricula"
 							required="required" />
 					</div>
@@ -154,27 +155,12 @@
 					</div>
 				</div>
 				
-				
-				
-				
-				
-				
+	
 		</div>
 		
-			
-			
-				
 
-		
-
-		
-				
-				
-				
-				
 			
-			
-			<button type="submit" class="btn btn-danger">Guardar</button>
+			<button type="submit" class="btn btn-danger" id="bEnviar">Guardar</button>
 		</form:form>
 
 		<hr class="featurette-divider">
@@ -194,11 +180,78 @@
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script>
 		$(function() {
-			$("#fechMatricula").datepicker({
+
+			$("#fechMatricula").datetimepicker({
 				dateFormat : 'dd-mm-yy'
 			});
 		});
+
+			$(function(){
+
+			$("#bEnviar").click(function(){
+
+				var placa = $("#placa").val();
+				var idProp = $("#idPropietario").val();
+				var numeroLicencia = $("#numeroLicencia").val();
+				var modelo = $("#modelo").val();
+				var cilindraje = $("#cilindraje").val();
+				var numeroPuertas = $("#numeroPuertas").val();
+
+				  expresion = /^[A-Z]{3}[0-9]{3}$/; 
+				
+				if((placa.length>6 || placa.length<6)  && !expresion.test(placa))
+					{
+							alert("LA PLACA NO ES VALIDA")
+							return false;
+					}
+				if(isNaN(idProp))	
+					{
+
+							alert("EL ID NO ES VALIDO");
+							return false;
+					}
+				if(isNaN(numeroLicencia))
+					{
+
+					alert("LA LICENCIA NO ES VALIDA");
+					return false;
+
+					}
+				if(isNaN(modelo) || modelo.length>4)
+				{
+
+				alert("EL MODELO NO ES VALIDO");
+				return false;
+
+				}
+				if(isNaN(cilindraje))
+				{
+
+				alert("EL CILINDRAJE NO ES VALIDO");
+				return false;
+
+				}
+				if(isNaN(numeroPuertas) || numeroPuertas.length>2)
+				{
+
+				alert("EL NUMERO DE PUERTAS NO ES VALIDO");
+				return false;
+
+				}
+
+				});
+
+			});
+
+
+			
+		
+			
 		
 	</script>
+	
+
+
+	
 </body>
 </html>

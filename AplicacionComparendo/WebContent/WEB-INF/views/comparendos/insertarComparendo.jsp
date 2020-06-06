@@ -33,13 +33,7 @@
 		<form:form action="${urlForm}" method="post" modelAttribute="comparendo">
 			<div class="row">
 				
-				<div class="col-sm-3">
-					<div class="form-group">
-						<label for="path">id Comparendo</label> <form:input type="text" 
-							class="form-control" path="idComparendo" id="idComparendo"
-							required="required" />
-					</div>
-				</div>
+		
 				
 					<div class="col-sm-3">
 					<div class="form-group">
@@ -51,7 +45,7 @@
 				
 		<div class="col-sm-3">
 					<div class="form-group">
-						<label for="path">fecha Infraccion</label> <form:input  
+						<label for="path">fecha Infraccion</label> <form:input  type="date"
 							class="form-control" path="fechaInfraccion" id="fechaInfraccion"
 							required="required" />
 					</div>
@@ -59,34 +53,43 @@
 				
 					<div class="col-sm-3">
 					<div class="form-group">
-						<label for="path">accidente</label> <form:input  
+						<label for="path">accidente</label> <form:select  
 							class="form-control" path="accidente" id="accidente"
-							required="required" />
+							required="required" >
+							<form:option value="true">Si</form:option>
+          					<form:option value="false">No</form:option>
+          					</form:select>
 					</div>
 				</div>
 				
 				
 					<div class="col-sm-3">
 					<div class="form-group">
-						<label for="path">reporta Fuga</label> <form:input  
+						<label for="path">reporta Fuga</label> <form:select  
 							class="form-control" path="reportaFuga" id="reportaFuga"
-							required="required" />
+							required="required" >
+							<form:option value="true">Si</form:option>
+          					<form:option value="false">No</form:option>
+          					</form:select>
 					</div>
 				</div>
 				
 				
 					<div class="col-sm-3">
 					<div class="form-group">
-						<label for="path">inmovilizacion</label> <form:input  
+						<label for="path">inmovilizacion</label> <form:select  
 							class="form-control" path="inmovilizacion" id="inmovilizacion"
-							required="required" />
+							required="required" >
+							<form:option value="true">Si</form:option>
+          					<form:option value="false">No</form:option>
+          					</form:select>
 					</div>
 				</div>
 				
 				
 					<div class="col-sm-3">
 					<div class="form-group">
-						<label for="path">horaInfraccion</label> <form:input  
+						<label for="path">hora Infraccion</label> <form:input type="time"
 							class="form-control" path="horaInfraccion" id="horaInfraccion"
 							required="required" />
 					</div>
@@ -95,36 +98,19 @@
 				
 					<div class="col-sm-3">
 					<div class="form-group">
-						<label for="path">estado</label> <form:input  
+						<label for="path">estado</label> <form:select  
 							class="form-control" path="estado" id="estado"
-							required="required" />
+							required="required" >
+							<form:option value="activo">activo</form:option>
+          					<form:option value="pagado">pagado</form:option>
+          					<form:option value="vencido">vencido</form:option>
+          					</form:select>
 					</div>
-				</div>
-				
-				
-			
-					
-				
-				
-				
-				
+				</div>	
 				
 		</div>
-		
 			
-			
-				
-
-		
-
-		
-				
-				
-				
-				
-			
-			
-			<button type="submit" class="btn btn-danger">Guardar</button>
+			<button type="submit" class="btn btn-danger" id="bEnviar">Guardar</button>
 		</form:form>
 
 		<hr class="featurette-divider">
@@ -144,10 +130,77 @@
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script>
 		$(function() {
-			$("#fechaInfraccion").datepicker({
+			$("#horaInfraccion").datetimepicker({
+				format: 'hh:ii'
+				});
+			$("#fechaInfraccion").datetimepicker({
 				dateFormat : 'dd-mm-yy'
 			});
+
 		});
+
+		$(function(){
+
+			$("#bEnviar").click(function(){
+
+				var numeroComaprendo = $("#numeroComaprendo").val();
+				var horaInfraccion = $("#horaInfraccion").val();
+				
+				var inmovilizacion = $("#inmovilizacion").val();
+				var reportaFuga = $("#reportaFuga").val();
+				var accidente = $("#accidente").val();
+				
+				if(isNaN(numeroComaprendo))
+					{
+							alert("EL NUMERO NO ES VALIDO")
+							return false;
+					}
+				if('inmovilizacion'=='true')
+					{
+
+					inmovilizacion=true;
+					return true;
+							
+					}
+				else
+					{
+					inmovilizacion=false;
+					return true;
+					}
+				if('accidente'=='true')
+				{
+
+					accidente=true;
+				return true;
+						
+				}
+			else
+				{
+				accidente=false;
+				return true;
+				}
+				if('reportaFuga'=='true')
+				{
+
+					reportaFuga=true;
+				return true;
+						
+				}
+			else
+				{
+				reportaFuga=false;
+				return true;
+				}
+
+
+				
+				});
+
+			});
+
+
+			
+
 		
 	</script>
 </body>

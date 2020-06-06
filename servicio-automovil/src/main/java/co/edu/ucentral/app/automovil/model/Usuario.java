@@ -1,55 +1,98 @@
 package co.edu.ucentral.app.automovil.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-public class Usuario {
 
-	
-	private Integer numerodocumento;
-	//@Column
-	private String tipodocumento;
-	//@Column
-	private String nombre;
-	//@Column
-	private String apellido;
-	//@Column
-	private char tiposangre;
-	//@Column
-	private String factorsangre;
-	//@Column
-	//@Temporal (TemporalType.DATE)
-	private Date fechanacimiento;
-	//@Column
-	private String direccionresidencia;
-	//@Column
-	private Integer edad;
-	//@Column
-	private Integer telefono;
-	//@Column
-	private String municipio;
-	//@Column
-	private String email;
-	//@Column
-	private double estatura;
-	
 
+
+
+@MappedSuperclass
+public class Usuario implements Serializable{
+
+
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8108626855795525565L;
 	
-	public Integer getNumerodocumento() {
-		return numerodocumento;
+	//@GeneratedValue(strategy=GenerationType.AUTO, generator="native")
+	//@GenericGenerator(name="native",strategy="native")
+	//@Id
+	//@GeneratedValue
+//	@Column(name="idciudadano")
+	//private Integer idciudadano;
+	@Column(name="tipodocumento")
+	protected String tipoDocumento;
+	protected Integer cedula;
+	protected String nombre;
+	protected String apellido;
+	@Column(name="tiposangre")
+	protected char tipoSangre;
+	@Column(name="factorsangre")
+	protected String factorSangre;
+	@Temporal (TemporalType.DATE)
+	@Column(name="fechanacimiento")
+	protected Date fechaNacimiento;
+	@Column(name="direccionresidencia")
+	protected String direccionResidencia;
+	protected Integer edad;
+	protected String telefono;
+	protected String municipio;
+	protected String email;
+	protected double estatura;
+	//@Transient
+	//private Integer Port;
+
+
+	public Usuario() {
 	}
-	public void setNumerodocumento(Integer numerodocumento) {
-		this.numerodocumento = numerodocumento;
+	public Usuario(String tipoDocumento, Integer numeroDocumento, String nombre, String apellido, char tipoSangre,
+			String factorSangre, Date fechaNacimiento, String municipio ,String direccionResidencia, Integer edad, String telefono,
+			 String email, double estatura) {
+		this.tipoDocumento = tipoDocumento;
+		this.cedula = numeroDocumento;
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.tipoSangre = tipoSangre;
+		this.factorSangre = factorSangre;
+		this.fechaNacimiento = fechaNacimiento;
+		this.direccionResidencia = direccionResidencia;
+		this.edad = edad;
+		this.telefono = telefono;
+		this.municipio = municipio;
+		this.email = email;
+		this.estatura = estatura;
 	}
-	public String getTipodocumento() {
-		return tipodocumento;
+	/*
+	public Integer getIdCiudadano() {
+		return idciudadano;
 	}
-	public void setTipodocumento(String tipodocumento) {
-		this.tipodocumento = tipodocumento;
+	public void setIdCiudadano(Integer idCiudadano) {
+		this.idciudadano = idCiudadano;
+	}
+	*/
+	public String getTipoDocumento() {
+		return tipoDocumento;
+	}
+	public void setTipoDocumento(String tipoDocumento) {
+		this.tipoDocumento = tipoDocumento;
+	}
+	public Integer getNumeroDocumento() {
+		return cedula;
+	}
+	public void setNumeroDocumento(Integer numeroDocumento) {
+		this.cedula = numeroDocumento;
 	}
 	public String getNombre() {
 		return nombre;
@@ -63,29 +106,29 @@ public class Usuario {
 	public void setApellido(String apellido) {
 		this.apellido = apellido;
 	}
-	public char getTiposangre() {
-		return tiposangre;
+	public char getTipoSangre() {
+		return tipoSangre;
 	}
-	public void setTiposangre(char tiposangre) {
-		this.tiposangre = tiposangre;
+	public void setTipoSangre(char tipoSangre) {
+		this.tipoSangre = tipoSangre;
 	}
-	public String getFactorsangre() {
-		return factorsangre;
+	public String getFactorSangre() {
+		return factorSangre;
 	}
-	public void setFactorsangre(String factorsangre) {
-		this.factorsangre = factorsangre;
+	public void setFactorSangre(String factorSangre) {
+		this.factorSangre = factorSangre;
 	}
-	public Date getFechanacimiento() {
-		return fechanacimiento;
+	public Date getFechaNacimiento() {
+		return fechaNacimiento;
 	}
-	public void setFechanacimiento(Date fechanacimiento) {
-		this.fechanacimiento = fechanacimiento;
+	public void setFechaNacimiento(Date fechaNacimiento) {
+		this.fechaNacimiento = fechaNacimiento;
 	}
-	public String getDireccionresidencia() {
-		return direccionresidencia;
+	public String getDireccionResidencia() {
+		return direccionResidencia;
 	}
-	public void setDireccionresidencia(String direccionresidencia) {
-		this.direccionresidencia = direccionresidencia;
+	public void setDireccionResidencia(String direccionResidencia) {
+		this.direccionResidencia = direccionResidencia;
 	}
 	public Integer getEdad() {
 		return edad;
@@ -93,18 +136,20 @@ public class Usuario {
 	public void setEdad(Integer edad) {
 		this.edad = edad;
 	}
-	public Integer getTelefono() {
+	public String getTelefono() {
 		return telefono;
 	}
-	public void setTelefono(Integer telefono) {
+	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
+	
 	public String getMunicipio() {
 		return municipio;
 	}
 	public void setMunicipio(String municipio) {
 		this.municipio = municipio;
 	}
+	
 	public String getEmail() {
 		return email;
 	}
@@ -117,8 +162,20 @@ public class Usuario {
 	public void setEstatura(double estatura) {
 		this.estatura = estatura;
 	}
-	
-	
-	
-	
+
+	public Integer getCedula() {
+		return cedula;
+	}
+	public void setCedula(Integer cedula) {
+		this.cedula = cedula;
+	}
+	@Override
+	public String toString() {
+		return "Ciudadano [" + ", tipoDocumento=" + tipoDocumento + ", numeroDocumento="
+				+ cedula + ", nombre=" + nombre + ", apellido=" + apellido + ", tipoSangre=" + tipoSangre
+				+ ", factorSangre=" + factorSangre + ", fechaNacimiento=" + fechaNacimiento + ", direccionResidencia="
+				+ direccionResidencia + ", edad=" + edad + ", telefono=" + telefono 
+				+ ", email=" + email + ", estatura=" + estatura + "]";
+	}
+
 }

@@ -28,6 +28,7 @@ public class ConductorServiceImpl implements IConductorService{
 
 	@Override
 	public void actualizarConductor(Conductor conductor) {
+		
 		Optional<Conductor> opt = conductorRepo.findbyNumeroDocumentoConductor(conductor.getNumeroDocumento());
 		if(opt.isPresent())
 		{
@@ -49,7 +50,9 @@ public class ConductorServiceImpl implements IConductorService{
 			conductorAct.setFechaVencimiento(conductor.getFechaVencimiento());
 			conductorAct.setCategoria(conductor.getCategoria());
 			conductorRepo.save(conductorAct);
+			
 		}
+		
 	}
 
 }

@@ -7,8 +7,12 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import co.edu.ucentral.app.automovil.model.Automovil;
@@ -25,16 +29,12 @@ public class AutomovilController {
 	private IAutomovilService automovilService;
 	
 	
-	@Value("${server.port}")
-	private Integer port;
-	
 	
 	@GetMapping("/listar")
 	public List<Automovil> listarAutomovil()
 	{
 		
-		return  automovilService.findAll().stream().map(automovil->{automovil.setPort(port); return automovil;
-		}).collect(Collectors.toList());
+		return  automovilService.findAll();
 	}
 	
 	@GetMapping("/buscar/{placa}")
@@ -50,7 +50,8 @@ public class AutomovilController {
 	}
 	
 	@GetMapping("/insertar")
-	public void insertarAutomovil(Automovil automovil)
+	@ResponseStatus(HttpStatus.CREATED)
+	public void insertarAutomovil(@ModelAttribute Automovil automovil)
 	{
 		
 		automovilService.insertarAutomovil(automovil);
@@ -58,17 +59,17 @@ public class AutomovilController {
 	}
 	
 	@GetMapping("/actualizar")
-	public void actualizarAutomovil(Automovil automovil)
+	public void actualizarAutomovil(@ModelAttribute Automovil automovil)
 	{
 		automovilService.actualizarAutomovil(automovil);
 		
 	}
 	
 	@GetMapping("/prueba/{id}")
-	public boolean prueba(@PathVariable("id") Integer id)
+	public boolean validarPropietario(@PathVariable("id") Integer id)
 	{
 		System.out.println("controlador auto");
-		return automovilService.prueba(id);
+		return automovilService.validarPropietario(id);
 	}
 	
 	

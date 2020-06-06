@@ -15,7 +15,9 @@ import org.springframework.web.client.RestTemplate;
 import co.edu.ucentral.app.automovil.cliente.AutomovilClienteRest;
 //import co.edu.ucentral.app.automovil.cliente.UsuarioClienteRest;
 import co.edu.ucentral.app.automovil.model.Automovil;
+import co.edu.ucentral.app.automovil.model.Ciudadano;
 import co.edu.ucentral.app.automovil.model.Usuario;
+import co.edu.ucentral.app.automovil.repository.AutomovilRepository;
 
 
 
@@ -27,6 +29,9 @@ public class AutomovilServiceImpl implements IAutomovilService{
 	
 	@Autowired
 	private AutomovilClienteRest clienteRest;
+	
+	@Autowired
+	private AutomovilRepository autoRepo;
 	
 	/*
 	public boolean validarPropietario(Integer idPropietario) {
@@ -51,7 +56,15 @@ public class AutomovilServiceImpl implements IAutomovilService{
 	@Override
 	public List<Automovil> findAll() {
 		// TODO Auto-generated method stub
-		return null;
+		
+		Iterable<Automovil> it  =  autoRepo.findAll();
+		for(Automovil c:it)
+		{
+			System.out.println("el nombre es:" + c.getPlaca());
+			
+		}
+		
+		return (List<Automovil>) it;
 	}
 
 
@@ -65,9 +78,10 @@ public class AutomovilServiceImpl implements IAutomovilService{
 	@Override
 	public void insertarAutomovil(Automovil automovil) {
 		
-		AutomovilServiceImpl a = new AutomovilServiceImpl();
-		a.validarPropietario(103);
+		//AutomovilServiceImpl a = new AutomovilServiceImpl();
+		//a.validarPropietario(103);
 		
+		autoRepo.save(automovil);
 	}
 
 
@@ -76,7 +90,7 @@ public class AutomovilServiceImpl implements IAutomovilService{
 		// TODO Auto-generated method stub
 		
 	}
-	
+	/*
 	public boolean prueba(Integer id)
 	{
 		AutomovilServiceImpl a = new AutomovilServiceImpl();
@@ -84,16 +98,18 @@ public class AutomovilServiceImpl implements IAutomovilService{
 		return a.validarPropietario(id);
 		
 	}
-
+*/
 
 	@Override
 	public boolean validarPropietario(Integer idPropietario) {
 		
 		System.out.println("LLEGA AL SERVICIO FEIGN" + idPropietario);
 		
-		Usuario usuario = clienteRest.buscar(idPropietario);
+		Ciudadano usuario = clienteRest.buscar(idPropietario);
 		
-		if(usuario!=null)
+		System.out.println(usuario.getNombre());
+		
+		if(usuario.getCedula()!=null)
 		{
 			
 			return true;
@@ -101,6 +117,9 @@ public class AutomovilServiceImpl implements IAutomovilService{
 		
 		return false;
 	}
+
+
+
 	
 	
 

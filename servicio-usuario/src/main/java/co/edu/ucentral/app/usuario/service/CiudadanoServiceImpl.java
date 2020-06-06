@@ -23,6 +23,7 @@ public class CiudadanoServiceImpl implements ICiudadanoService {
 
 	@Override
 	public void actualizarCiudadano(Ciudadano ciudadano) {
+		
 		Optional<Ciudadano> opt = ciudadanoRepo.findbyNumeroDocumentoCiudadano(ciudadano.getNumeroDocumento());
 		if(opt.isPresent())
 		{
@@ -42,6 +43,7 @@ public class CiudadanoServiceImpl implements ICiudadanoService {
 			ciudadanoAct.setEstatura(ciudadano.getEstatura());
 			ciudadanoRepo.save(ciudadanoAct);
 		}
+		
 	}
 
 	@Override

@@ -3,7 +3,10 @@ package co.edu.ucentral.app.automovil.model;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -20,21 +23,23 @@ public class Automovil implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
 	private String placa;
-	private Integer idPropietario;
-	private Integer numeroLicencia;
+	private Integer idciudadanos;
+	private Integer numerolicenciatrafico;
 	private String estado;
 	private String marca;
 	private Integer modelo;
-	private String numeroChasis;
+	private String numerochasis;
 	private Integer cilindraje;
-	private String tipoCombustible;
+	private String tipocombustible;
 	private String color;
-	private String numeroMotor;
-	private String tipoCarroceria;
+	private String numeromotor;
+	private String tipocarroceria;
 	@Temporal (TemporalType.DATE)
-	private Date fechMatricula;
-	private Integer numeroPuertas;
+	private Date fechamatricula;
+	private Integer numeropuertas;
 	@Transient
 	private Integer Port;
 	
@@ -47,21 +52,48 @@ public class Automovil implements Serializable{
 			String numeroMotor, String tipoCarroceria, Date fechMatricula, Integer numeroPuertas) {
 		
 		this.placa = placa;
-		this.idPropietario = idPropietario;
-		this.numeroLicencia = numeroLicencia;
+		this.idciudadanos = idPropietario;
+		this.numerolicenciatrafico = numeroLicencia;
 		this.estado = estado;
 		this.marca = marca;
 		this.modelo = modelo;
-		this.numeroChasis = numeroChasis;
+		this.numerochasis = numeroChasis;
 		this.cilindraje = cilindraje;
-		this.tipoCombustible = tipoCombustible;
+		this.tipocombustible = tipoCombustible;
 		this.color = color;
-		this.numeroMotor = numeroMotor;
-		this.tipoCarroceria = tipoCarroceria;
-		this.fechMatricula = fechMatricula;
-		this.numeroPuertas = numeroPuertas;
+		this.numeromotor = numeroMotor;
+		this.tipocarroceria = tipoCarroceria;
+		this.fechamatricula = fechMatricula;
+		this.numeropuertas = numeroPuertas;
 	}
 	
+	
+	
+	
+	public Integer getIdAutomovil() {
+		return id;
+	}
+	public void setIdAutomovil(Integer idAutomovil) {
+		this.id = idAutomovil;
+	}
+	public Integer getIdCiudadanos() {
+		return idciudadanos;
+	}
+	public void setIdCiudadanos(Integer idCiudadanos) {
+		this.idciudadanos = idCiudadanos;
+	}
+	public Integer getNumeroLicenciaTrafico() {
+		return numerolicenciatrafico;
+	}
+	public void setNumeroLicenciaTrafico(Integer numeroLicenciaTrafico) {
+		this.numerolicenciatrafico = numeroLicenciaTrafico;
+	}
+	public Date getFechaMatricula() {
+		return fechamatricula;
+	}
+	public void setFechaMatricula(Date fechaMatricula) {
+		this.fechamatricula = fechaMatricula;
+	}
 	public Integer getPort() {
 		return Port;
 	}
@@ -75,16 +107,16 @@ public class Automovil implements Serializable{
 		this.placa = placa;
 	}
 	public Integer getIdPropietario() {
-		return idPropietario;
+		return idciudadanos;
 	}
 	public void setIdPropietario(Integer idPropietario) {
-		this.idPropietario = idPropietario;
+		this.idciudadanos = idPropietario;
 	}
 	public Integer getNumeroLicencia() {
-		return numeroLicencia;
+		return numerolicenciatrafico;
 	}
 	public void setNumeroLicencia(Integer numeroLicencia) {
-		this.numeroLicencia = numeroLicencia;
+		this.numerolicenciatrafico = numeroLicencia;
 	}
 	public String getEstado() {
 		return estado;
@@ -105,10 +137,10 @@ public class Automovil implements Serializable{
 		this.modelo = modelo;
 	}
 	public String getNumeroChasis() {
-		return numeroChasis;
+		return numerochasis;
 	}
 	public void setNumeroChasis(String numeroChasis) {
-		this.numeroChasis = numeroChasis;
+		this.numerochasis = numeroChasis;
 	}
 	public Integer getCilindraje() {
 		return cilindraje;
@@ -117,10 +149,10 @@ public class Automovil implements Serializable{
 		this.cilindraje = cilindraje;
 	}
 	public String getTipoCombustible() {
-		return tipoCombustible;
+		return tipocombustible;
 	}
 	public void setTipoCombustible(String tipoCombustible) {
-		this.tipoCombustible = tipoCombustible;
+		this.tipocombustible = tipoCombustible;
 	}
 	public String getColor() {
 		return color;
@@ -129,36 +161,36 @@ public class Automovil implements Serializable{
 		this.color = color;
 	}
 	public String getNumeroMotor() {
-		return numeroMotor;
+		return numeromotor;
 	}
 	public void setNumeroMotor(String numeroMotor) {
-		this.numeroMotor = numeroMotor;
+		this.numeromotor = numeroMotor;
 	}
 	public String getTipoCarroceria() {
-		return tipoCarroceria;
+		return tipocarroceria;
 	}
 	public void setTipoCarroceria(String tipoCarroceria) {
-		this.tipoCarroceria = tipoCarroceria;
+		this.tipocarroceria = tipoCarroceria;
 	}
 	public Date getFechMatricula() {
-		return fechMatricula;
+		return fechamatricula;
 	}
 	public void setFechMatricula(Date fechMatricula) {
-		this.fechMatricula = fechMatricula;
+		this.fechamatricula = fechMatricula;
 	}
 	public Integer getNumeroPuertas() {
-		return numeroPuertas;
+		return numeropuertas;
 	}
 	public void setNumeroPuertas(Integer numeroPuertas) {
-		this.numeroPuertas = numeroPuertas;
+		this.numeropuertas = numeroPuertas;
 	}
 	@Override
 	public String toString() {
-		return "Automovil [placa=" + placa + ", idPropietario=" + idPropietario + ", numeroLicencia=" + numeroLicencia
-				+ ", estado=" + estado + ", marca=" + marca + ", modelo=" + modelo + ", numeroChasis=" + numeroChasis
-				+ ", cilindraje=" + cilindraje + ", tipoCombustible=" + tipoCombustible + ", color=" + color
-				+ ", numeroMotor=" + numeroMotor + ", tipoCarroceria=" + tipoCarroceria + ", fechMatricula="
-				+ fechMatricula + ", numeroPuertas=" + numeroPuertas + "]";
+		return "Automovil [placa=" + placa + ", idPropietario=" + idciudadanos + ", numeroLicencia=" + numerolicenciatrafico
+				+ ", estado=" + estado + ", marca=" + marca + ", modelo=" + modelo + ", numeroChasis=" + numerochasis
+				+ ", cilindraje=" + cilindraje + ", tipoCombustible=" + tipocombustible + ", color=" + color
+				+ ", numeroMotor=" + numeromotor + ", tipoCarroceria=" + tipocarroceria + ", fechMatricula="
+				+ fechamatricula + ", numeroPuertas=" + numeropuertas + "]";
 	}
 
 	

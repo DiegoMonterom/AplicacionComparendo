@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import co.edu.ucentral.app.model.Funcionario;
+import co.edu.ucentral.app.model.Login;
 import co.edu.ucentral.app.service.IComparendoService;
 
 
@@ -26,7 +26,7 @@ public class LoginController {
 	private IComparendoService comparendoService;
 
 	@GetMapping("/")
-	public String inicio(Model modelo, @ModelAttribute Funcionario funcionario){
+	public String inicio(Model modelo, @ModelAttribute Login funcionario){
 
 		modelo.addAttribute("funcionario", funcionario);
 		return "inicio";
@@ -35,7 +35,7 @@ public class LoginController {
 	
 	@PostMapping("/login")
 	//@ResponseStatus(HttpStatus.CONTINUE)
-	public String loginFuncionario(@ModelAttribute Funcionario funcionario){
+	public String loginFuncionario(@ModelAttribute Login funcionario){
 		
 	
 		comparendoService.login(funcionario.getUsuario(), funcionario.getContra());

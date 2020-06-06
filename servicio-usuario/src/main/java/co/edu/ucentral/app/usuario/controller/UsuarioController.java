@@ -4,7 +4,9 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import co.edu.ucentral.app.usuario.model.Ciudadano;
@@ -35,13 +37,13 @@ public class UsuarioController {
 	/////////////////////////////METODOS DE CIUDADANO//////////////////////////////////////////////////////////
 	
 	@GetMapping("/insertarciudadano")
-	public void insertarCiudadano(Ciudadano ciudadano)
+	public void insertarCiudadano(@ModelAttribute Ciudadano ciudadano)
 	{		
 		ciudadanoService.insertarCiudadano(ciudadano);
 	}
 	
 	@GetMapping("/actualizarciudadano")
-	public void actualizarCiudadano(Ciudadano ciudadano)
+	public void actualizarCiudadano(@ModelAttribute Ciudadano ciudadano)
 	{
 		ciudadanoService.actualizarCiudadano(ciudadano);
 		
@@ -62,7 +64,7 @@ public class UsuarioController {
 	/////////////////////////////METODOS DE CONDUCTOR//////////////////////////////////////////////////////////
 	
 	@GetMapping("/insertarconductor")
-	public void insertarConductor(Conductor conductor)
+	public void insertarConductor(@ModelAttribute Conductor conductor)
 	{
 		
 		conductorService.insertarConductor(conductor);
@@ -70,7 +72,7 @@ public class UsuarioController {
 	}
 	
 	@GetMapping("/actualizarconductor")
-	public void actualizarConductor(Conductor conductor)
+	public void actualizarConductor(@ModelAttribute Conductor conductor)
 	{
 		conductorService.actualizarConductor(conductor);
 		
@@ -91,7 +93,7 @@ public class UsuarioController {
 	/////////////////////////////METODOS DE FUNCIONARIO//////////////////////////////////////////////////////////
 	
 	@GetMapping("/insertarfuncionario")
-	public void insertarFuncionario(Funcionario funcionario)
+	public void insertarFuncionario(@ModelAttribute Funcionario funcionario)
 	{
 		
 		funcionarioService.insertarFuncionario(funcionario);
@@ -101,7 +103,7 @@ public class UsuarioController {
 	/////////////////////////////METODOS DE POLICIA//////////////////////////////////////////////////////////
 	
 	@GetMapping("/insertarpolicia")
-	public void insertarPolicia(Policia policia)
+	public void insertarPolicia(@ModelAttribute Policia policia)
 	{
 		
 		policiaService.insertarPolicia(policia);
@@ -109,7 +111,7 @@ public class UsuarioController {
 	}
 	
 	@GetMapping("/actualizarpolicia")
-	public void actualizarPolicia(Policia policia)
+	public void actualizarPolicia(@ModelAttribute Policia policia)
 	{
 		policiaService.actualizarPolicia(policia);
 		

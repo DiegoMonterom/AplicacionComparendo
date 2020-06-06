@@ -27,19 +27,29 @@ public class Funcionario implements Serializable{
 	@Transient
 	private String confirmarContraseña;
 	
+	private Integer cedulaFuncionario;
 	public Funcionario() {
 		
 	}
 	
 	public Funcionario(Integer idFuncionario, String nombreFuncionario, String apellidoFuncionario,
-			String nombreUsuario, String contraseña, String confirmarContraseña) {
-		super();
+			String nombreUsuario, String contraseña, String confirmarContraseña, Integer cedulaFuncionario) {
+		
 		this.idFuncionario = idFuncionario;
 		this.nombreFuncionario = nombreFuncionario;
 		this.apellidoFuncionario = apellidoFuncionario;
 		this.nombreUsuario = nombreUsuario;
 		this.contraseña = contraseña;
 		this.confirmarContraseña = confirmarContraseña;
+		this.cedulaFuncionario = cedulaFuncionario;
+	}
+
+	public Integer getCedulaFuncionario() {
+		return cedulaFuncionario;
+	}
+
+	public void setCedulaFuncionario(Integer cedulaFuncionario) {
+		this.cedulaFuncionario = cedulaFuncionario;
 	}
 
 	public Integer getIdFuncionario() {

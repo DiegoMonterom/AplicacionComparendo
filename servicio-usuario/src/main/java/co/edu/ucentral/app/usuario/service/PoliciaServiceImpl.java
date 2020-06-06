@@ -27,6 +27,7 @@ public class PoliciaServiceImpl implements IPoliciaService{
 
 	@Override
 	public void actualizarPolicia(Policia policia) {
+		
 		Optional<Policia> opt = policiaRepo.findbyNumeroDocumentoPolicia(policia.getNumeroDocumentoPolicia());
 		if(opt.isPresent())
 		{
@@ -38,6 +39,7 @@ public class PoliciaServiceImpl implements IPoliciaService{
 			policiaAct.setPlacaPolicia(policia.getPlacaPolicia());
 			policiaAct.setEntidadPolicia(policia.getEntidadPolicia());
 		}
+		
 	}
 
 }

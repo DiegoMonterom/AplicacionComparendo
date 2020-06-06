@@ -1,9 +1,8 @@
-package co.edu.ucentral.app.usuario.model;
+package co.edu.ucentral.app.model;
 
 import java.io.Serializable;
 import java.util.Date;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -11,7 +10,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table (name="conductores")
-public class Conductor extends Usuario implements Serializable{
+public class Conductor extends Ciudadano implements Serializable{
 
 	/**
 	 * 
@@ -19,11 +18,8 @@ public class Conductor extends Usuario implements Serializable{
 	private static final long serialVersionUID = 7701651352103944556L;
 	@Id
 	@GeneratedValue
-	@Column(name="idconductor")
-	private Integer idConductor;
-	@Column(name="numerolicencia")
+	private Integer id;
 	private Integer numeroLicencia;
-	@Column(name="fechavencimientolicencia")
 	private Date fechaVencimiento;
 	private Integer categoria;
 
@@ -34,16 +30,16 @@ public class Conductor extends Usuario implements Serializable{
 	public Conductor(String tipoDocumento, Integer numeroDocumento, String nombre, String apellido, char tipoSangre,
 			String factorSangre, Date fechaNacimiento, String direccionResidencia, Integer edad, String telefono,
 			String municipio, String email, double estatura) {
-		super(tipoDocumento, numeroDocumento, nombre, apellido, tipoSangre, factorSangre,fechaNacimiento, municipio, direccionResidencia,
-				edad, telefono, email, estatura);
+		super(tipoDocumento, numeroDocumento, nombre, apellido, tipoSangre, factorSangre, fechaNacimiento, direccionResidencia,
+				edad, telefono, municipio, email, estatura);
 	}
 
 	public Integer getId() {
-		return idConductor;
+		return id;
 	}
 
 	public void setId(Integer id) {
-		this.idConductor = id;
+		this.id = id;
 	}
 
 	public Integer getNumeroLicencia() {
@@ -72,7 +68,7 @@ public class Conductor extends Usuario implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Conductor [id=" + idConductor + ", numeroLicencia=" + numeroLicencia + ", fechaVencimiento=" + fechaVencimiento
+		return "Conductor [id=" + id + ", numeroLicencia=" + numeroLicencia + ", fechaVencimiento=" + fechaVencimiento
 				+ ", categoria=" + categoria + "]";
 	}
 

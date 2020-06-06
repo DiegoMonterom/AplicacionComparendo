@@ -1,4 +1,4 @@
-package co.edu.ucentral.app.usuario.model;
+package co.edu.ucentral.app.automovil.model;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -15,8 +15,7 @@ import javax.persistence.Transient;
 
 import org.hibernate.annotations.GenericGenerator;
 
-@Entity
-@Table (name="ciudadanos")
+
 public class Ciudadano extends Usuario implements Serializable{
 
 	/**
@@ -26,9 +25,7 @@ public class Ciudadano extends Usuario implements Serializable{
 	
 	//@GeneratedValue(strategy=GenerationType.AUTO, generator="native")
 	//@GenericGenerator(name="native",strategy="native")
-	@Id
-	@GeneratedValue
-	@Column(name="idciudadano")
+	
 	private Integer idciudadano;
 
 

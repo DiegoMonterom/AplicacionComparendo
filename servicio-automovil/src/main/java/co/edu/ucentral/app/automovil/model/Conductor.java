@@ -1,4 +1,4 @@
-package co.edu.ucentral.app.usuario.model;
+package co.edu.ucentral.app.automovil.model;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -9,21 +9,17 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity
-@Table (name="conductores")
+
 public class Conductor extends Usuario implements Serializable{
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 7701651352103944556L;
-	@Id
-	@GeneratedValue
-	@Column(name="idconductor")
+
+	
 	private Integer idConductor;
-	@Column(name="numerolicencia")
 	private Integer numeroLicencia;
-	@Column(name="fechavencimientolicencia")
 	private Date fechaVencimiento;
 	private Integer categoria;
 
