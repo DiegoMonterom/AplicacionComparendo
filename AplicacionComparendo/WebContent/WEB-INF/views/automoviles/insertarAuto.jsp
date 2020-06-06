@@ -26,6 +26,10 @@
 			<h3 class="blog-title">
 				<span class="label label-success">Ingrese los datos del automovil</span>
 			</h3>
+			<c:if test="${mensaje!=null}">
+			<div class="alert alert-success" role="alert">${mensaje}</div>
+		</c:if>
+			
 		</div>
 	
 		
@@ -179,13 +183,14 @@
 	<script src="${urlPublic}/bootstrap/js/bootstrap.min.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script>
+	/*
 		$(function() {
 
 			$("#fechMatricula").datetimepicker({
 				dateFormat : 'dd-mm-yy'
 			});
 		});
-
+*/
 			$(function(){
 
 			$("#bEnviar").click(function(){

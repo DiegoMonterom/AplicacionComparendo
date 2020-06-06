@@ -33,7 +33,7 @@ public class Automovil implements Serializable{
 	private String color;
 	private String numeroMotor;
 	private String tipoCarroceria;
-	private String fechMatricula;
+	private Date fechMatricula;
 	private Integer numeroPuertas;
 
 	
@@ -42,7 +42,7 @@ public class Automovil implements Serializable{
 	}
 	public Automovil(String placa, Integer idPropietario, Integer numeroLicencia, String estado, String marca,
 			Integer modelo, String numeroChasis, Integer cilindraje, String tipoCombustible, String color,
-			String numeroMotor, String tipoCarroceria, String fechMatricula, Integer numeroPuertas) {
+			String numeroMotor, String tipoCarroceria, Date fechMatricula, Integer numeroPuertas) {
 		
 		this.placa = placa;
 		this.idPropietario = idPropietario;
@@ -133,10 +133,10 @@ public class Automovil implements Serializable{
 	public void setTipoCarroceria(String tipoCarroceria) {
 		this.tipoCarroceria = tipoCarroceria;
 	}
-	public String getFechMatricula() {
+	public Date getFechMatricula() {
 		return fechMatricula;
 	}
-	public void setFechMatricula(String fechMatricula) {
+	public void setFechMatricula(Date fechMatricula) {
 		this.fechMatricula = fechMatricula;
 	}
 	public Integer getNumeroPuertas() {

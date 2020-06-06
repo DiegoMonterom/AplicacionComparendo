@@ -1,4 +1,6 @@
     <!-- Fixed navbar -->
+        <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+        <spring:url value="/" var="urlForm"></spring:url>
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
@@ -12,8 +14,8 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">            
-            <li><a href="#">Acerca de.</a></li>
-            <li><a href="#">Login</a></li>            
+            
+            <li><a href="${urlForm}">Volver al login</a></li>            
           </ul>
         </div><!--/.nav-collapse -->
       </div>

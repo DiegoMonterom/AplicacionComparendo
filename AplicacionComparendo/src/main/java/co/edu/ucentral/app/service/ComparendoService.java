@@ -2,10 +2,12 @@ package co.edu.ucentral.app.service;
 
 
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -21,7 +23,8 @@ import co.edu.ucentral.app.model.Usuario;
 public class ComparendoService implements IComparendoService{
 
 	
-	
+	//@Autowired
+	//private RestTemplate restTemplate;
 
 	@Override
 	public void login(String username, String password) {
@@ -35,6 +38,8 @@ public class ComparendoService implements IComparendoService{
 	public void registrarAutomovil(Automovil automovil) {
 		System.out.println("LLEGA AL SERVICE REGISTRAR AUTO");
 		// TODO: CONECTAR CON SERVICIO AUTOMOVIL
+		
+		//restTemplate.postForObject("http://localhost/api/automoviles/insertar", automovil, Automovil.class);
 
 		
 	}
@@ -99,14 +104,17 @@ public class ComparendoService implements IComparendoService{
 		Automovil auto = null;
 		
 		
-				auto = new Automovil("f", 123, 456, "prueba", "prueba", 1,"prueba", 789, "prueba", "prueba", "prueba", "prueba","03-06-2020" , 4);
-				/*
-				try {
-			} catch (ParseException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-	*/
+				
+				
+		
+					try {
+						auto = new Automovil("f", 123, 456, "prueba", "prueba", 1,"prueba", 789, "prueba", "prueba", "prueba", "prueba",formato.parse("03-06-2020" ), 4);
+					} catch (ParseException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					
+		
 		
 		return auto; 
 	}

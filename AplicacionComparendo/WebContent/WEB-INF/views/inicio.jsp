@@ -73,7 +73,7 @@
 		
 		</form:form>
 
-	<form:form action="${comp2}" method="get"><a href="${comp2}">VER HISTORIAL COMPARENDO USUARIO</a></form:form>
+	<!--<form:form action="${comp2}" method="get"><a href="${comp2}">VER HISTORIAL COMPARENDO USUARIO</a></form:form>-->
 
 
 		<hr class="featurette-divider">

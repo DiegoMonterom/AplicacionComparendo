@@ -9,9 +9,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="author" content="">
-<title>INSERTAR USUARIO</title>
+<title>INSERTAR FUNCIONARIO</title>
 <spring:url value="/resources" var="urlPublic"></spring:url>
-<spring:url value="../usuarios/insertarUsuario" var="urlForm"></spring:url>
+<spring:url value="../usuarios/insertarFuncionario" var="urlForm"></spring:url>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -59,7 +59,7 @@
 				
 					<div class="col-sm-3">
 					<div class="form-group">
-						<label for="path">contrasena</label> <form:input  
+						<label for="path">contrasena</label> <form:password  
 							class="form-control" path="contrasena" id="contrasena"
 							required="required" />
 					</div>
@@ -67,7 +67,7 @@
 				
 					<div class="col-sm-3">
 					<div class="form-group">
-						<label for="path">confirmar Contrasena</label> <form:input  
+						<label for="path">confirmar Contrasena</label> <form:password
 							class="form-control" path="confirmarContrasena" id="confirmarContrasena"
 							required="required" />
 					</div>
@@ -79,7 +79,7 @@
 	
 		</div>
 		
-			<button type="submit" class="btn btn-danger">Guardar</button>
+			<button type="submit" class="btn btn-danger" id="bEnviar">Guardar</button>
 		</form:form>
 
 		<hr class="featurette-divider">
@@ -98,11 +98,26 @@
 	<script src="${urlPublic}/bootstrap/js/bootstrap.min.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script>
-		$(function() {
-			$("#fechanacimiento").datepicker({
-				dateFormat : 'dd-mm-yy'
+	$(function(){
+
+		$("#bEnviar").click(function(){
+
+			
+			var password = $("#contrasena").val();
+			var confPassword = $("#confirmarContrasena").val();
+			
+			
+			
+			if(password!=confPassword)
+				{
+						alert("LAS CONTRASEÑAS NO COINCIDEN")
+						return false;
+				}
+			
 			});
+
 		});
+	
 		
 	</script>
 </body>

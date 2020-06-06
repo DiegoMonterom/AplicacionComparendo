@@ -9,9 +9,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="author" content="">
-<title>INSERTAR USUARIO</title>
+<title>INSERTAR POLICIA</title>
 <spring:url value="/resources" var="urlPublic"></spring:url>
-<spring:url value="../usuarios/insertarUsuario" var="urlForm"></spring:url>
+<spring:url value="../usuarios/insertarPolicia" var="urlForm"></spring:url>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -89,7 +89,7 @@
 		</div>
 		
 
-			<button type="submit" class="btn btn-danger">Guardar</button>
+			<button type="submit" class="btn btn-danger" id="bEnviar">Guardar</button>
 		</form:form>
 
 		<hr class="featurette-divider">
@@ -108,10 +108,29 @@
 	<script src="${urlPublic}/bootstrap/js/bootstrap.min.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script>
-		$(function() {
-			$("#fechanacimiento").datepicker({
-				dateFormat : 'dd-mm-yy'
+	$(function(){
+
+		$("#bEnviar").click(function(){
+
+			
+			var numeroPolicia = $("#numeroPolicia").val();
+			var numeroDocumentoPolicia = $("#numeroDocumentoPolicia").val();
+			
+			
+			
+			if(isNaN(numeroPolicia))
+				{
+						alert("EL NUMERO DE POLICIA NO ES VALIDO")
+						return false;
+				}
+			
+			if(isNaN(numeroDocumentoPolicia))
+				{
+						alert("EL NUMERO DE DOCUMENTO NO ES VALIDO")
+						return false;
+				}
 			});
+
 		});
 		
 	</script>

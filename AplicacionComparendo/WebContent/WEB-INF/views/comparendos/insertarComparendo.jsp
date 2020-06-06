@@ -26,6 +26,9 @@
 			<h3 class="blog-title">
 				<span class="label label-success">Ingrese los datos del comparendo</span>
 			</h3>
+				<c:if test="${mensaje!=null}">
+			<div class="alert alert-success" role="alert">${mensaje}</div>
+		</c:if>
 		</div>
 	
 		
@@ -47,6 +50,14 @@
 					<div class="form-group">
 						<label for="path">fecha Infraccion</label> <form:input  type="date"
 							class="form-control" path="fechaInfraccion" id="fechaInfraccion"
+							required="required" />
+					</div>
+				</div>
+				
+				<div class="col-sm-3">
+					<div class="form-group">
+						<label for="path">hora Infraccion</label> <form:input type="time"
+							class="form-control" path="horaInfraccion" id="horaInfraccion"
 							required="required" />
 					</div>
 				</div>
@@ -86,14 +97,51 @@
 					</div>
 				</div>
 				
+					
+					<div class="col-sm-3">
+					<div class="form-group">
+						<label for="path">No. Identificacion testigo</label> <form:input  
+							class="form-control" path="cedulaTestigo" id="cedulaTestigo"
+							 />
+					</div>
+				</div>
+				
+					
+					<div class="col-sm-3">
+					<div class="form-group">
+						<label for="path">Tipo infraccion</label> <form:input  
+							class="form-control" path="idInfraccion" id="idInfraccion"
+							 />
+					</div>
+				</div>
+				
+					
+					<div class="col-sm-3">
+					<div class="form-group">
+						<label for="path">No. Identificacion policia</label> <form:input  
+							class="form-control" path="cedulaPolicia" id="cedulaPolicia"
+							 />
+					</div>
+				</div>
 				
 					<div class="col-sm-3">
 					<div class="form-group">
-						<label for="path">hora Infraccion</label> <form:input type="time"
-							class="form-control" path="horaInfraccion" id="horaInfraccion"
-							required="required" />
+						<label for="path">direccion</label> <form:input  
+							class="form-control" path="direccion" id="direccion"
+							 />
 					</div>
 				</div>
+				
+							<div class="col-sm-3">
+					<div class="form-group">
+						<label for="path">placa automovil</label> <form:input  
+							class="form-control" path="placa" id="placa"
+							 />
+					</div>
+				</div>
+				
+				
+					
 				
 				
 					<div class="col-sm-3">
@@ -129,13 +177,16 @@
 	<script src="${urlPublic}/bootstrap/js/bootstrap.min.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script>
+	
 		$(function() {
 			$("#horaInfraccion").datetimepicker({
 				format: 'hh:ii'
 				});
+			/*
 			$("#fechaInfraccion").datetimepicker({
 				dateFormat : 'dd-mm-yy'
 			});
+			*/
 
 		});
 

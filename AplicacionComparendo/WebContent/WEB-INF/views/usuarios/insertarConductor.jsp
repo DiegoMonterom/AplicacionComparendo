@@ -11,7 +11,7 @@
 <meta name="author" content="">
 <title>INSERTAR USUARIO</title>
 <spring:url value="/resources" var="urlPublic"></spring:url>
-<spring:url value="../usuarios/insertarUsuario" var="urlForm"></spring:url>
+<spring:url value="../usuarios/insertarConductor" var="urlForm"></spring:url>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -169,7 +169,7 @@
 				
 				<div class="col-sm-3">
 					<div class="form-group">
-						<label for="path">fecha Vencimiento Licencia</label> <form:input  
+						<label for="path">fecha Vencimiento Licencia</label> <form:input type="date"  
 							class="form-control" path="fechaVencimiento" id="fechaVencimiento"
 							required="required" />
 					</div>
@@ -177,9 +177,12 @@
 				
 				<div class="col-sm-3">
 					<div class="form-group">
-						<label for="path">categoria</label> <form:input  
+						<label for="path">categoria</label> <form:select  
 							class="form-control" path="categoria" id="categoria"
-							required="required" />
+							required="required" >
+							<form:option value="1">B1</form:option>
+          					<form:option value="2">B2</form:option>
+          					</form:select>
 					</div>
 				</div>
 				
@@ -202,7 +205,7 @@
 				
 			
 			
-			<button type="submit" class="btn btn-danger">Guardar</button>
+			<button type="submit" class="btn btn-danger" id="bEnviar">Guardar</button>
 		</form:form>
 
 		<hr class="featurette-divider">
@@ -221,13 +224,14 @@
 	<script src="${urlPublic}/bootstrap/js/bootstrap.min.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script>
+	/*
 	$(function() {
 
 		$("#fechaNacimiento").datetimepicker({
 			dateFormat : 'dd-mm-yy'
 		});
 	});
-
+*/
 		$(function(){
 
 		$("#bEnviar").click(function(){
@@ -244,7 +248,7 @@
 			var municipio = $("#municipio").val();
 			var email = $("#email").val();
 			var estatura = $("#estatura").val();
-			
+			var licencia = $("#numeroLicencia").val();
 			
 			
 			
@@ -253,23 +257,30 @@
 						alert("EL DOCUMENTO NO ES VALIDO")
 						return false;
 				}
-			if(isNaN(edad))	
+			if(isNaN(edad)||edad.length>2)	
 				{
 
-						alert("EL ID NO ES VALIDO");
+						alert("LA EDAD NO ES VALIDA");
 						return false;
 				}
 			if(isNaN(telefono))
 				{
 
-				alert("LA LICENCIA NO ES VALIDA");
+				alert("EL TELEFONO NO ES VALIDO");
 				return false;
 
 				}
-			if(isNaN(estatura))
+			if(isNaN(estatura) || estatura.length>4)
 			{
 
-			alert("EL MODELO NO ES VALIDO");
+			alert("LA ESTATURA NO ES VALIDA");
+			return false;
+
+			}
+			if(isNaN(licencia))
+			{
+
+			alert("LA LICENCIA NO ES VALIDA");
 			return false;
 
 			}
