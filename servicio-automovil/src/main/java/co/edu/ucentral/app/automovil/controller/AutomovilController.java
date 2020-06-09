@@ -11,6 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
@@ -49,11 +50,12 @@ public class AutomovilController {
 		return auto1;
 	}
 	
-	@GetMapping("/insertar")
+	@PostMapping("/insertar")
 	@ResponseStatus(HttpStatus.CREATED)
-	public void insertarAutomovil(@ModelAttribute Automovil automovil)
+	public void insertarAutomovil(@ModelAttribute("automovil") Automovil automovil)
 	{
-		
+		System.out.println("LLEGA AL CONTROLADOR DEL SERVICIO AUTOMOVIL");
+		System.out.println(automovil.toString());
 		automovilService.insertarAutomovil(automovil);
 		
 	}
@@ -61,6 +63,7 @@ public class AutomovilController {
 	@GetMapping("/actualizar")
 	public void actualizarAutomovil(@ModelAttribute Automovil automovil)
 	{
+		
 		automovilService.actualizarAutomovil(automovil);
 		
 	}

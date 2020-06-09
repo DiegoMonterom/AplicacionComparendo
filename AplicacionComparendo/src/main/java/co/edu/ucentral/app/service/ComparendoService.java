@@ -8,9 +8,12 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestOperations;
 import org.springframework.web.client.RestTemplate;
 
+import co.edu.ucentral.app.clienteFeign.clienteFeign;
 import co.edu.ucentral.app.model.Automovil;
 import co.edu.ucentral.app.model.Ciudadano;
 import co.edu.ucentral.app.model.Comparendo;
@@ -19,13 +22,17 @@ import co.edu.ucentral.app.model.Funcionario;
 import co.edu.ucentral.app.model.Policia;
 import co.edu.ucentral.app.model.Usuario;
 
-@Service
+@Service("serviceFeign")
 public class ComparendoService implements IComparendoService{
 
 	
 	//@Autowired
 	//private RestTemplate restTemplate;
 
+	@Autowired
+	private clienteFeign clienteFeign;
+	
+	
 	@Override
 	public void login(String username, String password) {
 		
@@ -38,9 +45,11 @@ public class ComparendoService implements IComparendoService{
 	public void registrarAutomovil(Automovil automovil) {
 		System.out.println("LLEGA AL SERVICE REGISTRAR AUTO");
 		// TODO: CONECTAR CON SERVICIO AUTOMOVIL
+		System.out.println(automovil.toString());
 		
-		//restTemplate.postForObject("http://localhost/api/automoviles/insertar", automovil, Automovil.class);
-
+		clienteFeign.insertar(automovil);
+		
+		//restTemplate.postForObject("http://servicio-automovil/insertar", automovil, Automovil.class);
 		
 	}
 

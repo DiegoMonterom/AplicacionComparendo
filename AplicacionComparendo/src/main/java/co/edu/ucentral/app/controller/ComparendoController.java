@@ -17,12 +17,13 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import co.edu.ucentral.app.model.Comparendo;
 import co.edu.ucentral.app.service.IComparendoService;
 
-@Controller
+@RestController
 @RequestMapping("/comparendos")
 public class ComparendoController {
 
